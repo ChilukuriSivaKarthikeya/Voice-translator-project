@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">  
+    <title>Voice Translator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome CDN Link for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+        *{
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: 'Poppins', sans-serif;
+        }
+        body{
+          background-image:url("{% static 'images/speech.jpg'%}");
+          background-repeat: no-repeat; 
+          background-size: 100% 100%;
+        }
+        .body{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 90vh;
+        }
+        p{
+         color: rgb(229, 229, 229);
+         font-size: 35px;
+         font-weight: bold;
+         text-align: center;
+        }
+        .container form{
+          max-width: 620px;
+          width: 100%;
+          padding:30px;
+          background:rgb(255,255,255,0.8);
+          border-radius: 7px;
+          box-shadow: 0 10px 20px rgba(0,0,0,0.01);
+        }
+        .wrapper{
+          margin-top: 20px;
+          border-radius: 5px;
+          border: 1px solid rgb(65, 65, 65);
+        }
+        .controls, li{
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+        .controls{
+          list-style: none;
+          padding: 12px 15px;
+        }
+        .controls .row label{
+            font-size: 20px;
+            padding-right:10px;
+        }
+        .controls .row select{
+          color: #333;
+          border:  1px solid rgb(0, 0, 0);
+          border-radius: 15px;
+          outline: none;
+          font-size: 18px;
+          background: none;
+          padding-left: 10px;
+        }
+        .controls .row select::-webkit-scrollbar{
+          width: 8px;
+        }
+        .controls .row select::-webkit-scrollbar-track{
+          background: #fff;
+        }
+        .controls .row select::-webkit-scrollbar-thumb{
+          background: #999;
+          border-radius: 8px;
+          border-right: 2px solid #ffffff;
+        }
+        .controls .exchange{
+          color: #383737;
+          cursor: pointer;
+          padding: 0px 20px;
+          font-size: 16px;
+          transition: transform 0.2s ease;
+        }
+        .controls i:active{
+          transform: scale(0.9);
+        }
+        .container button{
+          width: 100%;
+          padding: 14px;
+          outline: none;
+          border: none;
+          color: #fff;
+          cursor: pointer;
+          font-size: 17px;
+          border-radius: 5px;
+          background: #5372F0;
+        }
+        .container button:active {
+           padding: 13px;
+        } 
+        @media (max-width: 660px){
+          .container{
+            padding: 20px;
+          }
+          .container button{
+            padding: 13px;
+            font-size: 16px;
+          }
+          .controls .row select{
+            font-size: 16px;
+          }
+          .controls .exchange{
+            font-size: 14px;
+          }
+        } 
+        .icon{
+          align-items: center;
+          display:none;
+        }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <p>Voice Translator</p>
+    </nav>
+    <div class="body">
+    <div id="1" class="container">
+      <form id="form" action="listen" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+      <button onclick="show()">Start speaking</button>
+      <div class="wrapper">
+        <ul class="controls">
+          <li class="row">
+            <label>Select</label>
+            <select name="src_lang">
+              <option value="en" selected>English</option>
+              <option value="te">Telugu</option>
+              <option value="hi">Hindi</option>
+              <option value="ta">Tamil</option>
+              <option value="bn">Bengali</option> 
+              <option value="mr">Marathi</option>
+              <option value="ur">Urdu</option>
+              <option value="kn">Kannada</option>
+              <option value="zh-cn">Chinese</option>
+              <option value="ja">Japanese</option>
+              <option value="es">Spanish</option>
+              <option value="ru">Russian</option>
+            </select>
+          </li>
+          <li class="exchange"><i class="fas fa-exchange-alt"></i></li>
+          <li class="row">
+            <label>Select</label>
+            <select name="dest_lang" >
+              <option value="en">English</option>
+              <option value="te" selected>Telugu</option>
+              <option value="hi">Hindi</option>
+              <option value="ta">Tamil</option>
+              <option value="bn">Bengali</option>
+              <option value="mr">Marati</option>
+              <option value="ur">Urdu</option>
+              <option value="kn">Kannada</option>
+              <option value="zh-cn">Chinese</option>
+              <option value="ja">Japanese</option>
+              <option value="es">Spanish</option>
+              <option value="ru">Russian</option>
+            </select>
+          </li>
+        </ul>
+      </form> 
+      </div>
+    </div>
+    <div id="2" class="icon">
+
+      <lottie-player src="https://lottie.host/508b0cca-98bf-4947-93fc-386414acb719/gtESr95Suq.json" background="transparent" speed="1" style="width: 200px; height: 300px;" loop autoplay></lottie-player>
+      
+    </div>
+  </div>
+    </body>
+    <script >
+      function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+          const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+        }
+        return cookieValue;
+        }
+        function show() {
+         document.getElementById("1").style.display='none';
+         document.getElementById("2").style.display='block';
+         document.body.style.backgroundImage = "url('{% static 'images/recognition.png'%}')";
+         document.getElementById("form").submit();
+        }
+    </script>
+</html>
