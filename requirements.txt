@@ -23,6 +23,7 @@ importlib-metadata==4.11.3
 numpy==1.21.5
 packaging==21.3
 Pillow==9.1.0
+pipfile==0.0.2
 PyAudio==0.2.12
 PyDictionary==2.0.1
 pygame==2.1.2
@@ -41,6 +42,7 @@ sniffio==1.2.0
 soupsieve==2.3.2
 SpeechRecognition==3.9.0
 sqlparse==0.2.4
+toml==0.10.2
 typing_extensions==4.1.1
 urllib3==1.26.9
 winspeech==1.0.1
