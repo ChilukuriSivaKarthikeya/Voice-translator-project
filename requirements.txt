@@ -24,7 +24,6 @@ importlib-metadata==4.11.3
 packaging==21.3
 Pillow==9.1.0
 pipfile==0.0.2
-PyAudio==0.2.12
 pygame==2.1.2
 pymongo==3.12.3
 pyparsing==3.0.8
