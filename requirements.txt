@@ -23,6 +23,7 @@ hyperframe==5.2.0
 idna==2.10
 importlib-metadata==4.11.3
 packaging==21.3
+PyAudio==0.2.13
 Pillow==9.1.0
 pipfile==0.0.2
 pygame==2.1.2
