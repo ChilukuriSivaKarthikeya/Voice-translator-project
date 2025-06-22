@@ -28,6 +28,3 @@ A web-based voice translation app that recognizes spoken voice, translates it in
 2.**Install required Python packages:**
    ```bash
    pip install -r requirements.txt
-3.**Run the Django development server:**
-  ```bash
-   python manage.py runserver
