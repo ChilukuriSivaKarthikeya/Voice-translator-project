@@ -1,4 +1,31 @@
-The voice translator is used to translate the recognized voice into a selected language voice.It translate your voice and read aloud the translate results. Allowing you to travel,communication, social networking is no longer a language barrier. This project is web based application developed by using Python, Django, Html, CSS and Javascript.
+# 🌍 Voice Translator Web Application
 
+A web-based voice translation app that recognizes spoken voice, translates it into a selected language, and reads the translated output aloud. Designed to eliminate language barriers in travel, communication, and social networking.
 
-# Voice-translator-project
+## 🎯 Features
+
+- 🎤 **Voice Recognition** – Capture and convert speech to text in real time
+- 🌐 **Language Translation** – Translate recognized text into a selected language
+- 🔊 **Text-to-Speech** – Read aloud the translated text using speech synthesis
+- 💻 **Web-based Interface** – Easy-to-use UI accessible through any modern browser
+
+## 🛠️ Tech Stack
+
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** Python, Django
+- **APIs & Libraries:**
+  - `SpeechRecognition` – for capturing and converting voice to text
+  - `Googletrans` – for language translation
+  - `gTTS` or `pyttsx3` – for text-to-speech conversion
+  - `Django` – for server-side logic and routing
+
+## 📦 Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/ChilukuriSivaKarthikeya/Voice-translator-project.git
+   cd Voice-translator-project
+2.**Install required Python packages:**
+   pip install -r requirements.txt
+3.**Run the Django development server:**
+   python manage.py runserver
