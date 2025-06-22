@@ -21,10 +21,19 @@ A web-based voice translation app that recognizes spoken voice, translates it in
 
 ## 📦 Installation
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/ChilukuriSivaKarthikeya/Voice-translator-project.git
-   cd Voice-translator-project
-2.**Install required Python packages:**
-   ```bash
-   pip install -r requirements.txt
+```bash
+# Clone the repository
+git clone https://github.com/ChilukuriSivaKarthikeya/Voice-translator-project.git
+
+# Navigate into the project directory
+cd Voice-translator-project
+
+# Install dependencies (make sure virtualenv is activated)
+pip install -r requirements.txt
+
+# Run migrations
+python manage.py migrate
+
+# Start the server
+python manage.py runserver
+
