@@ -26,6 +26,8 @@ A web-based voice translation app that recognizes spoken voice, translates it in
    git clone https://github.com/ChilukuriSivaKarthikeya/Voice-translator-project.git
    cd Voice-translator-project
 2.**Install required Python packages:**
+   ```bash
    pip install -r requirements.txt
 3.**Run the Django development server:**
+  ```bash
    python manage.py runserver
